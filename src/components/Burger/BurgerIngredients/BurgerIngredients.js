@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createComponent } from 'react-fela';
+import PropTypes from 'prop-types';
 
 const BreadBottom = createComponent(
     () => ({
@@ -139,36 +140,42 @@ const Bacon = createComponent(
 );
 
 
-const burgerIngredient = (props) => {
-    let ingredient = null;
+class BurgerIngredient extends Component {
+    render () {
+        let ingredient = null;
 
-    switch ( props.type ) {
-        case ( 'bread-bottom' ):
-            ingredient = <BreadBottom></BreadBottom>
-            break;
-        case ( 'bread-top' ):
-            ingredient = <BreadTop>
-                            <Seeds1></Seeds1>
-                            <Seeds2></Seeds2>
-                        </BreadTop>
-            break;
-        case ( 'meat' ):
-            ingredient = <Meat></Meat>
-            break;
-        case ( 'cheese' ):
-            ingredient = <Cheese></Cheese>
-            break;
-        case ( 'salad' ):
-            ingredient = <Salad></Salad>
-            break;
-        case ( 'bacon' ):
-            ingredient = <Bacon></Bacon>
-            break;
-        default:
-            ingredient = null;
-    }
+        switch ( this.props.type ) {
+            case ( 'bread-bottom' ):
+                ingredient = <BreadBottom></BreadBottom>
+                break;
+            case ( 'bread-top' ):
+                ingredient = <BreadTop>
+                                <Seeds1></Seeds1>
+                                <Seeds2></Seeds2>
+                            </BreadTop>
+                break;
+            case ( 'meat' ):
+                ingredient = <Meat></Meat>
+                break;
+            case ( 'cheese' ):
+                ingredient = <Cheese></Cheese>
+                break;
+            case ( 'salad' ):
+                ingredient = <Salad></Salad>
+                break;
+            case ( 'bacon' ):
+                ingredient = <Bacon></Bacon>
+                break;
+            default:
+                ingredient = null;
+        }
 
-    return ingredient;
-};
+        return ingredient;
+    }   
+}
 
-export default burgerIngredient;
+BurgerIngredient.propTypes = {
+    type: PropTypes.string.isRequired
+}
+
+export default BurgerIngredient;
