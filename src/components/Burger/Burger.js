@@ -28,11 +28,27 @@ const Burger = createComponent(
 );
 
 const burger = ( props ) => {
+    let transformedIngredients = Object.keys(props.ingredients)//create array from an object
+            .map(ingredientKey => {//loop over the element
+                return [...Array(props.ingredients[ingredientKey])]//return  created array with amount of the same element into prev array 
+                .map((_, i) => {//loop over those elements and pass unique key and type
+                    return <BurgerIngredient key={ingredientKey + i} type={ingredientKey} />
+                });
+            })
+            .reduce((arr, el) => {
+                // console.log('element:', el)
+                console.log(arr.concat(el));
+                return arr.concat(el)
+            }, []);
+
+            if(transformedIngredients.length === 0) {
+                transformedIngredients = <p>Please start adding ingredients</p>
+            }
+
     return (
         <Burger>
             <BurgerIngredient type="bread-top" />
-            <BurgerIngredient type="cheese" />
-            <BurgerIngredient type="meat" />
+                {transformedIngredients}
             <BurgerIngredient type="bread-bottom" />
         </Burger>
     );
