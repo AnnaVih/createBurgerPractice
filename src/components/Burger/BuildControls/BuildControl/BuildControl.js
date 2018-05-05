@@ -72,10 +72,11 @@ const MoreBtn = createComponent(
 
 
 const buildControl = (props) => (
-    <BuildControl className="build-control">
-        <Label className="build-control-label">{props.label}</Label>
-        <LessBtn>Less</LessBtn>
-        <MoreBtn>More</MoreBtn>
+    <BuildControl>
+        <Label>{props.label}</Label>
+        <button onClick={props.removed} 
+                disabled={props.disabled}>Less</button>
+        <button onClick={props.added}>More</button>
     </BuildControl>
 )
 
