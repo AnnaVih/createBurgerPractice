@@ -9,7 +9,7 @@ const controls = [
     { label: 'Meat', type: 'meat'},        
 ];
 
-const BuildControls = createComponent(
+const BuildControlStyles = createComponent(
     () => ({
         width: "100%",
         margin: "auto",
@@ -23,7 +23,7 @@ const BuildControls = createComponent(
 );
 
 const buildControls = ( props ) => (
-    <BuildControls>
+    <BuildControlStyles>
         <p>Current Price: <strong>{props.price.toFixed(2)}</strong></p>
         {controls.map(ctrl => {
             console.log(ctrl.type);
@@ -38,7 +38,7 @@ const buildControls = ( props ) => (
         <button disabled={!props.purchasable}
                 onClick={props.ordered}
         >  ORDER NOW </button>
-    </BuildControls>
+    </BuildControlStyles>
 );
 
 export default buildControls;
