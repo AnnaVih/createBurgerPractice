@@ -17,11 +17,11 @@ const Burger = createComponent(
         },
         '@media (min-width: 500px) and (min-height: 401px)': {
             width: "450px",
-            height: "400px"
+            height: "250px"
         },
         '@media (min-width: 1000px) and (min-height: 700px)': {
-            width: "700px",
-            height: "600px"
+            width: "500px",
+            height: "500px"
         }
     }),
     "div"
